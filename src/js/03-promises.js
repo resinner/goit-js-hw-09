@@ -30,20 +30,23 @@ formRef.addEventListener('submit', e => {
   for (let i = 1; i <= amount; i += 1) {
     createPromise(i, amountStep)
       .then(({ position, delay }) => {
-        console.log(`✅ Fulfilled promise ${position} in ${delay}ms`);
+        // console.log(`✅ Fulfilled promise ${position} in ${delay}ms`);
         Notiflix.Notify.success(
-          '✅ Fulfilled promise ${position} in ${delay}ms'
+          `✅Fulfilled promise ${position} in ${delay}ms`
         );
        
       })
       .catch(({ position, delay }) => {
-        console.log(`❌ Rejected promise ${position} in ${delay}ms`);
+        // console.log(`❌ Rejected promise ${position} in ${delay}ms`);
          Notiflix.Notify.failure(
-           '❌ Rejected promise ${position} in ${delay}ms'
+           `❌Rejected promise ${position} in ${delay}ms`
          );
       })
       .finally(() => {
         formRef.reset;
+        delay = 0;
+        step = 0;
+        amount = 0;
       }, (amountStep += step));
   }
 });

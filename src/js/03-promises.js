@@ -43,7 +43,7 @@ formRef.addEventListener('submit', e => {
          );
       })
       .finally(() => {
-        formRef.reset;
+        formRef.reset();
         delay = 0;
         step = 0;
         amount = 0;
